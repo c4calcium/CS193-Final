@@ -19,7 +19,7 @@ Small RPG game with interactable NPCs, quests, enemies to kill, coins to collect
 
 ## Setup
 
-[Download Godot][https://url.com](https://godotengine.org/) and open up the cloned repo to import into Godot, click the run button
+[Download Godot][https://godotengine.org/] and open up the cloned repo to import into Godot, click the run button
 
 ## Usage
 
@@ -35,4 +35,4 @@ WASD to move
 
 ## Author
 
-[Cal Vest](https://github.com/c4calcium)
+[Cal Vest][https://github.com/c4calcium]
