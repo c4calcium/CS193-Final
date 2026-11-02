@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://biq2ubv708xcu"]
+
+[ext_resource type="Script" uid="uid://dgqmcknfjyhst" path="res://scripts/wheatley.gd" id="1_bswci"]
+[ext_resource type="Texture2D" uid="uid://dg78edpyogrt2" path="res://assets/wheatley.png" id="2_rus8k"]
+[ext_resource type="Texture2D" uid="uid://csglyncj211k1" path="res://assets/qeLogoBg.png" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://inpwqqh3ytcp" path="res://scenes/coin.tscn" id="4_5xbjy"]
+[ext_resource type="Script" uid="uid://d2kqaejpvuu4t" path="res://scripts/next_level.gd" id="5_4nkto"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ypfh"]
+radius = 105.00476
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ypfh"]
+size = Vector2(176, 1409.6847)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juaul"]
+size = Vector2(181, 176)
+
+[node name="level_1" type="Node2D" unique_id=136998656]
+
+[node name="wheatley" type="CharacterBody2D" parent="." unique_id=71693191]
+position = Vector2(550, 317)
+scale = Vector2(0.27999985, 0.27999985)
+script = ExtResource("1_bswci")
+
+[node name="Sprite2D" type="Sprite2D" parent="wheatley" unique_id=881973086]
+position = Vector2(17, 5)
+texture = ExtResource("2_rus8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wheatley" unique_id=1556693515]
+shape = SubResource("CircleShape2D_8ypfh")
+
+[node name="Camera2D" type="Camera2D" parent="wheatley" unique_id=489190810]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="background" type="Sprite2D" parent="." unique_id=1867142749]
+z_index = -5
+position = Vector2(556, 326)
+scale = Vector2(1.6000025, 1.6000025)
+texture = ExtResource("3_rus8k")
+
+[node name="walls" type="Node2D" parent="." unique_id=897276606]
+
+[node name="wall" type="StaticBody2D" parent="walls" unique_id=1994812466]
+position = Vector2(-170, 313)
+
+[node name="Sprite2D" type="Sprite2D" parent="walls/wall" unique_id=2020677651]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(-0.17657024, 1.4077692)
+texture = ExtResource("3_rus8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall" unique_id=234986426]
+position = Vector2(0, -2.3677945e-05)
+scale = Vector2(1, 0.9988049)
+shape = SubResource("RectangleShape2D_8ypfh")
+
+[node name="coins" type="Node2D" parent="." unique_id=284735675]
+
+[node name="coin" parent="coins" unique_id=642004250 instance=ExtResource("4_5xbjy")]
+position = Vector2(675.99994, 480.99997)
+
+[node name="coin2" parent="coins" unique_id=1712826323 instance=ExtResource("4_5xbjy")]
+position = Vector2(335.99997, 217.99998)
+
+[node name="coin3" parent="coins" unique_id=265774331 instance=ExtResource("4_5xbjy")]
+position = Vector2(279.99997, 518.99994)
+
+[node name="coin4" parent="coins" unique_id=1585368257 instance=ExtResource("4_5xbjy")]
+position = Vector2(761.99994, 201)
+
+[node name="next_level" type="Area2D" parent="." unique_id=1796469167]
+position = Vector2(471, 851)
+script = ExtResource("5_4nkto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="next_level" unique_id=707194140]
+position = Vector2(80.5, 78)
+shape = SubResource("RectangleShape2D_juaul")
+
+[connection signal="body_entered" from="next_level" to="next_level" method="_on_body_entered"]
