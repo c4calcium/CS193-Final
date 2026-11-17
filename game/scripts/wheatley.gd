@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 @onready var sprite = $Sprite2D
+@onready var coinLabel = $CanvasLayer/coinLabel
 var coins = 0
 
 func get_input():
@@ -15,3 +16,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+
+func coinGot():
+	coins += 1
+	coinLabel.text = "coins: " + str(coins)

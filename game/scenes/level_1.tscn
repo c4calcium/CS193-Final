@@ -33,7 +33,19 @@ shape = SubResource("CircleShape2D_8ypfh")
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="wheatley" unique_id=299962379]
+
+[node name="coinLabel" type="Label" parent="wheatley/CanvasLayer" unique_id=949060125]
+offset_left = 21.0
+offset_top = 18.0
+offset_right = 238.0
+offset_bottom = 101.0
+theme_override_constants/outline_size = 26
+theme_override_font_sizes/font_size = 60
+text = "coins: 0"
+
 [node name="background" type="Sprite2D" parent="." unique_id=1867142749]
+visible = false
 z_index = -5
 position = Vector2(556, 326)
 scale = Vector2(1.6000025, 1.6000025)
